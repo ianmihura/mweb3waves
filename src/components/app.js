@@ -9,7 +9,7 @@ class App extends React.Component {
     }
     authFunc() {
         const authData = { data: "Auth on my site" };
-        if (WavesKeeper) {
+        try {
             WavesKeeper.auth( authData )
             .then(auth => {
                 console.log( auth ); //displaying the result on the console
@@ -18,7 +18,7 @@ class App extends React.Component {
                 console.error( error ); // displaying the result on the console
                 /*...processing errors */
             })
-        } else {
+        } catch {
             alert("To Auth WavesKeeper should be installed.");
         }
     }
